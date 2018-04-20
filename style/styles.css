@@ -1,0 +1,342 @@
+* {
+    margin: auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    width: 600px;
+}
+
+header {
+    width: 100%;
+    height: 50px;
+    background: #f2f2f2;
+    line-height: 50px;
+    text-align: center;
+    border-bottom: 1px solid #d8d8d8;
+}
+
+header img {
+    width: 30px;
+    height: auto;
+    position: relative;
+    top: 8px;
+}
+
+header h2 {
+    font-size: 20px;
+    display: inline;
+}
+
+.recording-controllers {
+    width: 100%;
+    height: 50px;
+    background: #282828;
+    color: #fff;
+    position: relative;
+    line-height: 50px;
+    padding: 0 15px;
+    text-transform: uppercase;
+}
+
+.lbl {
+    position: relative;
+    display: block;
+    height: 20px;
+    width: 44px;
+    background: #898989;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.lbl:after {
+    position: absolute;
+    left: -2px;
+    top: -3px;
+    display: block;
+    width: 26px;
+    height: 26px;
+    border-radius: 100px;
+    background: #fff;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.05);
+    content: '';
+    transition: all 0.3s ease;
+}
+
+.lbl:active:after {
+    transform: scale(1.15, 0.85);
+}
+
+.cbx:checked ~ label {
+    background: #ea4444;
+}
+
+.cbx:checked ~ label:after {
+    left: 20px;
+    background: #9e2a2a;
+}
+
+.cbx:disabled ~ label {
+    background: #d5d5d5;
+    pointer-events: none;
+}
+
+.cbx:disabled ~ label:after {
+    background: #bcbdbc;
+}
+
+.cntr {
+    position: absolute;
+    right: 30px;
+    top: 15px;
+}
+
+.press {
+    margin-bottom: 40px;
+}
+
+.hidden {
+    display: none;
+}
+
+.container {
+    display: none;
+    padding: 0 0 20px 0;
+}
+
+.container.show {
+    display: block;
+}
+
+.action-controllers {
+    width: 100%;
+    display: flex;
+    padding-top: 20px;
+    flex-direction: row;
+}
+
+.action-controllers .tab {
+    width: 90px;
+    height: 100px;
+    background: #f7f7f7;
+    border: 1px solid #d8d8d8;
+    cursor: pointer;
+    text-align: center;
+    padding: 30px 0;
+    transition: all .3s ease;
+    border-radius: 3px;
+}
+
+.action-controllers .tab h4 {
+    font-weight: 200;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.action-controllers .tab i {
+    font-size: 23px;
+}
+
+.action-controllers .tab:hover {
+    background: #49cc8a;
+    border: 1px solid #37a36c;
+}
+
+.action-controllers .tab:hover i, .action-controllers .tab:hover h4 {
+    color: #fff;
+}
+
+.data {
+
+}
+
+.container .back {
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    background: #f7f7f7;
+    font-size: 13px;
+    cursor: pointer;
+    position: relative;
+    border-bottom: 1px solid #bcbdbc;
+}
+
+.container .back .bg {
+    width: 0;
+    height: 30px;
+    background: #37a36c;
+    z-index: 0;
+    margin: auto;
+    right: 0;
+    position: absolute;
+    transition: all .3s ease;
+}
+
+.container .back:hover .bg {
+    width: 100%;
+}
+
+.container .back:hover .text {
+    color: #fff;
+}
+
+.container .back .text {
+    z-index: 10;
+    transition: all .3s ease;
+    position: relative;
+}
+
+.container h2 {
+    margin: 10px;
+}
+
+.container .data .item {
+    width: 100%;
+    padding: 10px;
+}
+
+.container .data .item span {
+    margin-bottom: 5px;
+    font-weight: bold;
+    display: block;
+    cursor: pointer;
+}
+
+.container .data .item ul {
+    list-style: none;
+    height: 120px;
+    overflow-y: scroll;
+    border: 1px solid #bcbdbc;
+}
+
+.container .data .item ul li:nth-of-type(odd) {
+    background: #efefef;
+}
+
+.container .data .item ul li {
+    height: 15px;
+    padding: 0 15px;
+    display: flex;
+    text-align: left;
+}
+
+.container .data .item ul li div {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 1;
+    width: 0;
+}
+
+.container .statistics .row, .container .settings .row {
+    width: 100%;
+    padding: 5px 20px;
+    font-size: 14px;
+    border-bottom: 1px solid #d8d8d8;
+    border-top: 1px solid #d8d8d8;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.clearfloat {
+    clear: both;
+}
+
+.container .export .options {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0 20px 20px 20px;
+    border-bottom: 1px solid #d8d8d8;
+}
+
+.container .export .type {
+    margin-top: 25px;
+    padding: 0 20px;
+}
+
+.container .export .export-button {
+    width: 150px;
+    height: 40px;
+    border-radius: 3px;
+    background: #37a36c;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    margin-top: 15px;
+    margin-right: 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.container .export .export-button:hover {
+    background: #49cc8a;
+}
+
+.container .import {
+    text-align: center;
+    font-size: 14px;
+}
+
+.container .import p {
+    text-align: center;
+}
+
+.container .import code {
+    text-align: center;
+    background: #f8ffb5;
+}
+
+.container .import .import-button {
+    width: 150px;
+    height: 40px;
+    border-radius: 3px;
+    background: #9e2a2a;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    margin: 10px auto;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.container .import .import-button:hover {
+    background: #ea4444;
+}
+
+.container .settings p {
+    margin: 10px;
+}
+
+.container .settings .save-button {
+    width: 150px;
+    height: 40px;
+    border-radius: 3px;
+    background: #9e2a2a;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    margin: 10px auto;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.container .settings .save-button:hover {
+    background: #ea4444;
+}

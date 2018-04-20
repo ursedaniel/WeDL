@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <title>WeDI</title>
+    <link rel="stylesheet" href="./style/font-awesome.min.css"/>
+    <link rel="stylesheet" href="./style/styles.css"/>
+</head>
+<body>
+<header>
+    <img src="resources/icon.png" alt="Logo"/>
+    <h2>WeDI</h2>
+</header>
+<section class="recording-controllers">
+    <span id="not-recording-text">Not recording</span>
+    <span id="recording-text">Recording...</span>
+    <div class="cntr">
+        <div class="row press">
+            <input type="checkbox" id="unchecked" class="cbx hidden"/>
+            <label for="unchecked" class="lbl"></label>
+        </div>
+    </div>
+</section>
+<section class="container show" id="dashboard">
+    <div class="action-controllers">
+        <div class="tab" data-target="data">
+            <i class="fa fa-database" aria-hidden="true"></i>
+            <h4>Data</h4>
+        </div>
+        <div class="tab" data-target="statistics">
+            <i class="fa fa-bar-chart" aria-hidden="true"></i>
+            <h4>Statistics</h4>
+        </div>
+        <div class="tab" data-target="export">
+            <i class="fa fa-download" aria-hidden="true"></i>
+            <h4>Export</h4>
+        </div>
+        <div class="tab" data-target="import">
+            <i class="fa fa-puzzle-piece" aria-hidden="true"></i>
+            <h4>Add Extension</h4>
+        </div>
+        <div class="tab" data-target="settings">
+            <i class="fa fa-cog" aria-hidden="true"></i>
+            <h4>Settings</h4>
+        </div>
+    </div>
+</section>
+<section class="container" id="data">
+    <div class="data">
+        <div class="back">
+            <div class="bg"></div>
+            <div class="text"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> Back</div>
+        </div>
+        <div class="content">
+            <h2>Collected data</h2>
+            <div id="wedi-data">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="container" id="statistics">
+    <div class="statistics">
+        <div class="back">
+            <div class="bg"></div>
+            <div class="text"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> Back</div>
+        </div>
+        <div class="content">
+            <h2>Statistics</h2>
+            <div class="row">
+                <span class="left"><i class="fa fa-circle-o" aria-hidden="true"></i> Total data</span>
+                <span class="right" id="total-statistics"></span>
+                <div class="clearfloat"></div>
+            </div>
+            <div id="widi-statistics"></div>
+        </div>
+    </div>
+</section>
+<section class="container" id="export">
+    <div class="export">
+        <div class="back">
+            <div class="bg"></div>
+            <div class="text"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> Back</div>
+        </div>
+        <div class="content">
+            <h2>Export</h2>
+            <div class="options" id="widi-options"></div>
+            <div class="type left">
+                <span>Exported format</span>
+                <select id="widi-format">
+                    <option value="html">HTML</option>
+                    <option value="json">JSON</option>
+                </select>
+            </div>
+            <div class="export-button right" id="startFormat">
+                <i class="fa fa-download" aria-hidden="true"></i>
+                Export
+            </div>
+            <div class="clearfloat"></div>
+        </div>
+    </div>
+</section>
+<section class="container" id="import">
+    <div class="import">
+        <div class="back">
+            <div class="bg"></div>
+            <div class="text"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> Back</div>
+        </div>
+        <div class="content">
+            <h2>Import</h2>
+            <p>To import, you must have a .json file containing:</p>
+            <code>
+                {
+                "icon": "example",
+                "name": "Value",
+                "key": "Unique value",
+                "algorithm": "function(param) {...}"
+                }
+            </code>
+            <p>Icon: FontAwesome icon (eg: <b>fa-cog</b>)</p>
+            <p>Name: Name of plugin (eg: <b>Email</b>)</p>
+            <p>key: Unique value of plugin (eg: <b>email</b>)</p>
+            <p>Algorithms: A string which represent a javascript<br/> function which take 1 parameter and return a json
+                <br/>The param will have the next form: {url: string, text: string}
+            </p>
+            <br/>
+            <input type='file' id='fileinput'>
+            <div class="import-button" id="import-button">
+                <i class="fa fa-upload" aria-hidden="true"></i>
+                Import
+            </div>
+        </div>
+    </div>
+</section>
+<section class="container" id="settings">
+    <div class="settings">
+        <div class="back">
+            <div class="bg"></div>
+            <div class="text"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> Back</div>
+        </div>
+        <div class="content">
+            <h2>Settings</h2>
+            <p>Select what you want to record</p>
+            <div id="extensions"></div>
+        </div>
+    </div>
+</section>
+
+<script src="js/htmlbehavior.js"></script>
+<script src="js/recording-data.js"></script>
+<script src="js/import-extension.js"></script>
+<script src="js/settings.js"></script>
+<script src="js/show-data.js"></script>
+<script src="js/statistics.js"></script>
+<script src="js/export-data.js"></script>
+</body>
+</html>
