@@ -8,7 +8,6 @@ function executeExtensions(request) {
                 } catch (e) {
                     console.error("Oops, seems your extension is broken. See error message:" + e.message);
                 }
-                console.log(request.pageContent);
 
                 var data = extension({url: request.url, text: request.pageContent, title: request.title});
                 if (!ext.data) {
@@ -40,10 +39,24 @@ chrome.runtime.onMessage.addListener(
     }
 );
 
-chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
-    //code in here will run every time a user goes onto a new tab, so you can insert your scripts into every new tab
-        chrome.tabs.executeScript(null, {code: "var x = 3"},
+// chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
+//     //code in here will run every time a user goes onto a new tab, so you can insert your scripts into every new tab
+//         chrome.tabs.executeScript(tabId, {code: ""},
+//             function (results) {
+//                 chrome.tabs.executeScript(null, {file: 'extensions/custom.js'});
+//             });
+// });
+
+// chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+//     alert(changeInfo.status);
+// });
+
+chrome.tabs.onActivated.addListener(function (activeInfo) {
+    // how to fetch tab url using activeInfo.tabid
+    chrome.tabs.get(activeInfo.tabId, function () {
+        chrome.tabs.executeScript(activeInfo.tabId, {code: ""},
             function (results) {
-                chrome.tabs.executeScript(null, {file: 'extensions/custom.js'});
+                chrome.tabs.executeScript(null, {file: 'extensions/insert.js'});
             });
+    });
 });
